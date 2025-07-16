@@ -2,17 +2,15 @@
 
 namespace App\Models;
 
+use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable
+class User extends Authenticatable implements AuthenticatableContract
 {
-    use Notifiable;
-
     protected $fillable = [
+        'surname',
         'first_name',
         'last_name',
-        'surname',
         'email',
         'password',
     ];
@@ -21,4 +19,10 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
+    public function contributions()
+    {
+        return $this->hasMany(Contribution::class);
+    }
+
 }

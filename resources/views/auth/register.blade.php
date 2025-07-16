@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background: linear-gradient(to right, #e0f7fa, #a5d6a7);
+            background: linear-gradient(to right, #f5f5dc, #cce3f6); /* beige to light blue */
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -17,13 +17,29 @@
         .card {
             border: none;
             border-radius: 1.5rem;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
         }
         .card-header {
+            background-color: #004c8c !important; /* deep blue */
+            color: white;
             border-radius: 1.5rem 1.5rem 0 0;
+        }
+        .btn-primary {
+            background-color: #004c8c;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #006bb6;
         }
         .form-label {
             font-weight: 600;
+            color: #004c8c;
+        }
+        .text-link {
+            color: #004c8c;
+        }
+        .text-link:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -33,7 +49,7 @@
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card shadow-lg">
-                <div class="card-header bg-success text-white text-center py-3">
+                <div class="card-header text-center py-3">
                     <h4>Create an Account</h4>
                 </div>
                 <div class="card-body px-4 py-4">
@@ -43,8 +59,14 @@
                     @endif
 
                     <!-- Registration Form -->
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('register-user') }}">
                         @csrf
+
+                        <div class="mb-3">
+                            <label for="surname" class="form-label">Surname</label>
+                            <input type="text" name="surname" id="surname" class="form-control rounded-pill" required>
+                        </div>
+                    
 
                         <div class="mb-3">
                             <label for="first_name" class="form-label">First Name</label>
@@ -54,11 +76,6 @@
                         <div class="mb-3">
                             <label for="last_name" class="form-label">Last Name</label>
                             <input type="text" name="last_name" id="last_name" class="form-control rounded-pill" required>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="surname" class="form-label">Surname</label>
-                            <input type="text" name="surname" id="surname" class="form-control rounded-pill" required>
                         </div>
 
                         <div class="mb-3">
@@ -77,13 +94,14 @@
                         </div>
 
                         <div class="d-grid">
-                            <button type="submit" class="btn btn-success btn-lg rounded-pill">Register</button>
+                            <button type="submit" class="btn btn-primary btn-lg rounded-pill">Register</button>
                         </div>
                     </form>
 
                     <div class="text-center mt-3">
                         <small>Already have an account?
-                            <a href="{{ route('login') }}" class="text-success fw-bold">Login here</a>
+                            <a href="{{ route('login') }}" class="text-link fw-bold">Login here</a>
+                            <a href="{{ route('home') }}" class="text-decoration-none d-block mt-2">← Back to Home</a>
                         </small>
                     </div>
                 </div>

@@ -11,7 +11,62 @@
     <div class="container">
         <h1 class="display-4 fw-bold mb-4">Welcome to Kaabchepkooy Benevolent Fund</h1>
         <p class="lead mb-4">United in purpose, committed to dignified send-offs and member wellbeing.</p>
-        <a href="{{ route('scheme') }}" class="btn btn-primary btn-lg">Join the Scheme</a>
+        <a href="{{ route('register') }}" class="btn btn-primary btn-lg">Join the Scheme</a>
+    </div>
+</section>
+
+<!-- Subscription Plans Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-5 fw-bold">Join a Circle of Support</h2>
+        <div class="row g-4">
+
+            <!-- Starter Circle -->
+            <div class="col-md-4">
+                <div class="card border-primary shadow h-100 text-center">
+                    <div class="card-body">
+                        <i class="bi bi-person-circle text-primary display-4 mb-3"></i>
+                        <h5 class="card-title text-primary fw-bold">Starter Circle</h5>
+                        <p class="card-text">
+                            Begin your journey with us. Get essential funeral support, member alerts, and access to clan meetings.
+                        </p>
+                        <h6 class="text-muted">Ksh. 200 / year</h6>
+                        <a href="{{ route('register') }}" class="btn btn-outline-primary mt-3">Join Starter</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Unity Circle -->
+            <div class="col-md-4">
+                <div class="card border-success shadow h-100 text-center">
+                    <div class="card-body">
+                        <i class="bi bi-people-fill text-success display-4 mb-3"></i>
+                        <h5 class="card-title text-success fw-bold">Unity Circle</h5>
+                        <p class="card-text">
+                            For active contributors. Enjoy additional benefits, priority assistance, and exclusive event invitations.
+                        </p>
+                        <h6 class="text-muted">Ksh. 500 / year</h6>
+                        <a href="{{ route('register') }}" class="btn btn-outline-success mt-3">Join Unity</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Heritage Circle -->
+            <div class="col-md-4">
+                <div class="card border-warning shadow h-100 text-center">
+                    <div class="card-body">
+                        <i class="bi bi-gem text-warning display-4 mb-3"></i>
+                        <h5 class="card-title text-warning fw-bold">Heritage Circle</h5>
+                        <p class="card-text">
+                            Our premium tier for legacy members. Enjoy maximum benefits, family coverage, and leadership eligibility.
+                        </p>
+                        <h6 class="text-muted">Ksh. 1,000 / year</h6>
+                        <a href="{{ route('register') }}" class="btn btn-outline-warning mt-3">Join Heritage</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
 </section>
 

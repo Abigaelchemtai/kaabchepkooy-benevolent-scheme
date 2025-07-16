@@ -74,23 +74,27 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('about') }}">About Us</a></li>
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('about') }}">About Us</a></li>
+
+                @auth
                     <li class="nav-item"><a class="nav-link" href="{{ route('downloads') }}">Downloads</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('media') }}">Media Centre</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('scheme') }}">Benevolent Scheme</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('burial') }}">Burial Scheme</a></li>
-                    <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                @endauth
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="accountDropdown" role="button" data-bs-toggle="dropdown">
                         Account
                     </a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="accountDropdown">
+                    <ul class="dropdown-menu dropdown-menu-end">
                         @guest
                             <li><a class="dropdown-item" href="{{ route('login') }}">Sign In</a></li>
                             <li><a class="dropdown-item" href="{{ route('register') }}">Register</a></li>
                         @else
-                            <li><a class="dropdown-item" href="{{ route('dashboard') }}">My Profile</a></li>
+                            <li><a class="dropdown-item" href="{{ route('profile') }}">My Profile</a></li>
                             <li>
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf
@@ -100,8 +104,7 @@
                         @endguest
                     </ul>
                 </li>
-
-                </ul>
+            </ul>
             </div>
         </div>
     </nav>
@@ -118,7 +121,8 @@
         @yield('content')
     </div>
 
-        <!-- Contact/Feedback Form -->
+<!-- Contact/Feedback Form -->
+@unless (Request::is('profile'))
 <section class="container mt-5 mb-5">
     <h2 class="text-center mb-4">Contact Us</h2>
 
@@ -163,6 +167,7 @@
         </div>
     </form>
 </section>
+@endunless
 
 
     {{-- Footer --}}
